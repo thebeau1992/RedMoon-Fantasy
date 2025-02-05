@@ -2,7 +2,7 @@
 
 🚀 **RedMoon Fantasy** is an online MMORPG where players download the game executable directly from the website. This project modernizes the game’s distribution using a custom launcher/installer built via Inno Setup, PHP scripts for backend integration, Node.js for real-time communication, and a suite of modern web technologies for front-end presentation. The system leverages SQL Server 2022 for game data, XAMPP (Apache) for web hosting, Cloudflare for SSL/DDoS protection, and No-IP for dynamic DNS.
 
-> **Note:** The installer performs registry edits, file linking, and configuration to ensure seamless local execution.
+> **Note:** The installer performs registry edits, file linking, and configuration to ensure seamless local execution. If you wish to download it via GitHub, please place it in C drive as C:\RedMoon3944 and run the Registry-Edit file as administrator within the folder. A direct download link can be found here: https://drive.google.com/uc?export=download&id=1qzdRTBU0fm4YHivsRS_5e-XzG7T4ffG3
 
 ---
 
