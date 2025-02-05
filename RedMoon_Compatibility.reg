@@ -1,0 +1,42 @@
+Windows Registry Editor Version 5.00
+
+; ✅ COMPATIBILITY SETTINGS
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers]
+"C:\\RedMoon3944\\RedMoon.exe"="WINXPSP3 RUNASADMIN 16BITCOLOR 640X480 DISABLEDXMAXIMIZEDWINDOWEDMODE HIGHDPIAWARE"
+
+; ✅ GAME EXECUTION & DPI SETTINGS
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\RedMoon.exe]
+"UseFilter"=dword:00000000
+"MitigationOptions"=hex:00,00,00,00,00,00,00,00
+"DpiAwareness"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\RedMoon.exe]
+"CompatVersion"="WinXP"
+"DpiAware"=dword:00000001
+"DisableDXMaximizedWindowedMode"=dword:00000001
+"ColorMode"="16BITCOLOR"
+"ScreenResolution"="640X480"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Custom\RedMoon]
+"RunAsAdmin"=dword:00000001
+"DisableFullscreenOptimizations"=dword:00000001
+
+; ✅ FILE ASSOCIATION (.myp linked to RedMoon.exe)
+[HKEY_CLASSES_ROOT\Applications\RedMoon.exe]
+"FriendlyAppName"="RedMoon Fantasy"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\FileExts\.myp]
+"Application"="RedMoon.exe"
+
+; ✅ UNINSTALL ENTRY
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\RedMoon]
+"DisplayName"="RedMoon Fantasy"
+"UninstallString"="C:\\RedMoon3944\\Uninstall.exe"
+
+; ✅ DISABLE CLEARTYPE SYSTEM-WIDE (OPTIONAL)
+[HKEY_CURRENT_USER\Software\Microsoft\Avalon.Graphics]
+"ClearTypeLevel"=dword:00000000
+"EnhancedContrastLevel"=dword:00000000
+"GrayscaleEnhancedContrastLevel"=dword:00000000
+"PixelStructure"=dword:00000001
+"TextContrastLevel"=dword:00000000
