@@ -23,17 +23,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        $mail->SMTPDebug = 0; 
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; 
-        $mail->SMTPAuth = true; 
-        $mail->Username = 'redmoon.fantasy1@gmail.com'; 
-        $mail->Password = 'pbwy iwgw cqgn okiw'; 
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587; 
+        $mail->SMTPDebug = HIDDEN; 
+        $mail->isSMTP(HIDDEN);
+        $mail->Host = 'HIDDEN'; 
+        $mail->SMTPAuth = HIDDEN; 
+        $mail->Username = 'HIDDEN'; 
+        $mail->Password = 'HIDDEN'; 
+        $mail->SMTPSecure = 'HIDDEN';
+        $mail->Port = HIDDEN; 
 
         
-        $mail->setFrom('redmoon.fantasy1@gmail.com', 'Shawn Thebeau');
+        $mail->setFrom('HIDDEN', 'HIDDEN');
 
         $mail->isHTML(true); 
         $mail->Subject = $title;
