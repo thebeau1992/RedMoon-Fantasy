@@ -1,0 +1,479 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redmoon Fantasy</title>
+    <link rel="icon" href="<link rel="icon" href="" type="image/x-icon">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left img {
+            height: 55px;
+            margin-right: -200px;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            max-width: 45%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                max-width: 80%;
+            }
+        }
+
+        .sign-in {
+            padding: 10px 20px;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #40E0D0;
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+        }
+
+        .sign-in:hover {
+            background-color: #40E0D0;
+            color: #26867d;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 120px;
+        }
+
+        .social-icons img {
+            width: 180px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            order: 1;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                order: 3;
+                width: 100%;
+            }
+        }
+
+        nav {
+            padding: 10px 0;
+            width: fit-content;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 5px 15px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            display: inline-block;
+            border: 2px solid black;
+            border-radius: 5px;
+            background-color: #40E0D0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #40E0D0;
+            color: #26867d;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 20px;
+        }
+
+        .content, .sidebar {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 1px;
+        }
+
+        .content {
+            flex: 3;
+            margin-right: 20px;
+            font-size: 1.1em;
+        }
+
+        .content h1 {
+            margin-top: 0;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 25%;
+            background: #000;
+        }
+
+        .video-container iframe,
+        .video-container object,
+        .video-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sidebar {
+            flex: 1;
+        }
+
+        .sidebar-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .sidebar-section h3 {
+            margin: 0 0 10px;
+        }
+
+        .discord-button {
+            background-color: #40E0D0;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .discord-button img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .server-time, .instance, .schedule {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .server-time span, .instance span, .schedule span {
+            display: block;
+            font-weight: bold;
+        }
+
+        .news {
+            margin: 10px 0;
+        }
+
+        .news-item {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+
+        .news-item h2 {
+            margin: 0;
+        }
+
+        .news-item p {
+            margin: 10px 0;
+        }
+
+        .news-item .date, .news-item .author {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .news-item .author {
+            margin-left: 1;
+        }
+
+        .server-details-item {
+            border-bottom: 1px solid #ddd;
+            padding: 5px 0;
+        }
+
+        .server-details-item h2 {
+            margin: 0 0 5px 0;
+        }
+
+        .server-details-item p {
+            margin: 3px 0;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+
+            .content {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 1px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 1px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 500px; 
+            height: 50%; 
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                height: 95%; 
+                max-height: 95%;
+                margin: 5% auto;
+            }
+        }
+
+        .close {
+            color: #aaa;
+            align-self: flex-end;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+		iframe {
+			flex-grow: 1;
+			border: none;
+			width: 100%;
+			height: 300px; 
+			overflow: hidden; 
+		}
+
+		.video-wrapper {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		.video-wrapper h2 {
+			margin-bottom: 10px;
+			font-size: 1.5em;
+			color: #333;
+		}
+
+
+    </style>
+	
+    <script src="script.js?v=<?php echo filemtime('script.js'); ?>"></script>
+ 
+	
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <img src="/images/RMF.png" alt="Redmoon Fantasy Logo">
+        </div>
+        <div class="logo">
+            <img src="/images/rm1.png" alt="Redmoon Logo">
+        </div>
+    </header>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/addaccount.php">Add Account</a></li>
+                <li><a href="/ranks.php">Rankings</a></li>
+                <li><a href="/online.php">Online</a></li>
+                <li><a href="/HelpfulLinks.php">Tools</a></li>
+                <li><a href="/Shop.php">Store</a></li>
+                <li><a href="/DonationProgress.php">Contributions</a></li>
+                <li><a href="/contact.php">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="main-content">
+        <div class="content">
+            <h2>DOUBLE EXP EVENT NOW LIVE UNTIL VALENTINES DAY (FEB 14th, 2025)</h2>
+            <div class="news">
+                <div class="news-item">
+                    <p class="date">  Welcome</p>
+                    <p class="author">by GMFantasy</p>
+                    <p></p>
+                    <p>Redmoon Fantasy offers an immersive experience with unique gameplay features, including a fully functioning Battle-Match server, a Rebirth system, and server-exclusive Hardcore-style gameplay.
+                    Redmoon is a classic MMORPG renowned for its unique fusion of science-fiction and fantasy themes, originating from an 18-volume Korean comic book. The game features a dynamic mix of martial
+                    arts, advanced weaponry, and psychic abilities, set across a rich, multi-planetary world. Players can select from a diverse array of characters, each with unique skills and playstyles, ensuring a
+                    tailored gaming experience. Continuous updates and community-driven events keep the game fresh and engaging, making it a favorite among MMORPG enthusiasts.</p>
+                </div>
+            </div>
+			
+			<div class="video-wrapper">
+				<h2>A player discovering the Unique Shield as a drop from a Super!</h2>
+				<video controls width="100%" style="max-width: 800px; margin: 20px auto; display: block;">
+                <source src="/RMFVideo.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+				</video>
+			</div>
+
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-section">
+                <a href="https://discord.gg/GWBAh5j" class="discord-button">
+                    <img src="images/discord.png" alt="Discord">Join our Discord
+                </a>
+            </div>
+            <div class="sidebar-section server-time">
+                <h2>Server Version</h2>
+                <span>3.944e</span>
+            </div>
+            <div class="sidebar-section schedule">
+                <h2>Downloads</h2>
+                <h3>Last client update: Jan 2nd, 2025</h3>
+                <p><a href="https://drive.google.com/uc?export=download&id=1qzdRTBU0fm4YHivsRS_5e-XzG7T4ffG3">Client Download</a></p>
+                <p><a href="/redmoon/RMUtilities.exe">RedMoon Utilities Program</a></p>
+                <span>Fully compatible on all windows operating systems.</span>
+            </div>
+			
+			
+            <div class="sidebar-section Server-Details">
+                <h1>Server Details</h1>
+                <p> • 3x normal experience</p>
+                <p> • Enhanced drop rate system</p>
+                <p> • Teleportation Statues</p>
+                <p> • Lottery Tickets (chance of getting any unique)</p>
+                <p> • All Character AOE at 500</p>
+                <p> • Instant Honor change script</p>
+                <p> • Global Community with 300+ Discord members</p>
+                <p> • Street 1 Spy House Buff at level 50</p>
+            </div>
+			
+        </div>
+    </div>
+
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeContactPage()">&times;</span>
+            <iframe id="contact-iframe" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+
+        function loadContactPage() {
+            var modal = document.getElementById("contactModal");
+            var iframe = document.getElementById("contact-iframe");
+            iframe.src = "/redmoon/contact.html";
+            modal.style.display = "block";
+        }
+
+        function closeContactPage() {
+            var modal = document.getElementById("contactModal");
+            var iframe = document.getElementById("contact-iframe");
+            modal.style.display = "none";
+            iframe.src = "";
+        }
+        
+        window.onclick = function(event) {
+            var contactModal = document.getElementById("contactModal");
+            if (event.target == contactModal) {
+                closeContactPage();
+            }
+        }
+    </script>
+    
+</body>
+</html>
