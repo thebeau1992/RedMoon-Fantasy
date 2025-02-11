@@ -123,6 +123,6 @@ For **standard data entry forms** (e.g., Add Account, Contact Form, Store Checko
 ---
 
 ## **7. Conclusion & Submission Details**
-This UI documentation serves as a **comprehensive guide** to **design, accessibility, and functionality** within the **RedMoon Fantasy** project. The document should be **linked to the master project documentation** and **regularly updated as changes occur**.
+This UI documentation serves as a **comprehensive guide** to **design, accessibility, and functionality** within the **RedMoon Fantasy** project.
 ```
 
